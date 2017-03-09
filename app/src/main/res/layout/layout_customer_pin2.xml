@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <org.four4labs.widget.DataPinView
+            android:id="@+id/data_pin_customer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+        </org.four4labs.widget.DataPinView>
+
+    </LinearLayout>
+
+</com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView2>

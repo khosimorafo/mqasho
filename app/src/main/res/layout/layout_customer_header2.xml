@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1">
+<!--
+        <ImageView
+            android:id="@+id/image_edit_customer_header"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:contentDescription="icon"
+            android:src="@drawable/ic_pencil_48"
+            />
+-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_customer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_account_black_48dp"
+            android:layout_marginStart="@dimen/activity_vertical_margin_8dp"
+            android:layout_centerHorizontal="true"
+            app:civ_border_color="@color/color_divider"
+            app:civ_border_width="1dp"
+            />
+
+        <com.feerlaroc.widgets.rx.ReactiveTextView
+            android:id="@+id/text_customer_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_padding_4dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/circle_image_customer"
+            android:text="@string/customer_name_holder"
+            android:textSize="@dimen/text_title"/>
+    </RelativeLayout>
+
+</com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView2>

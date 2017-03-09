@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <LinearLayout
+        android:id="@+id/layout_customer_textbite"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.feerlaroc.widgets.rx.ReactiveCurrencyBite
+            android:id="@+id/textbite_outstanding_amount"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/activity_vertical_margin_8dp"/>
+
+    </LinearLayout>
+
+</com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2>

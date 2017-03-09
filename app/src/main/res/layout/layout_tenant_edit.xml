@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mqasho.schema.tenant.view.TenantEditView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.rsa.myapplication.DrawerActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme"
+            app:elevation="0dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?attr/colorPrimary"
+                android:layout_gravity="end"
+                app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/activity_vertical_margin"
+                    android:paddingEnd="@dimen/activity_vertical_margin"
+                    android:gravity="end">
+
+                    <Button
+                        android:id="@+id/layout_tenant_btn_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_transparent"
+                        android:textColor="@color/color_white"
+                        android:text="@string/save_tenant"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <LinearLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:layout_margin="@dimen/activity_horizontal_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/activity_vertical_margin_8dp">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_customer_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                            android:id="@+id/input_tenant_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text=""
+                            android:hint="@string/hint_customer_name"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_customer_zaid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                            android:id="@+id/input_tenant_zaid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:digits="1234567890"
+                            android:hint="@string/hint_customer_zaid" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_customer_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                            android:id="@+id/input_tenant_mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:digits="1234567890"
+                            android:hint="@string/hint_customer_mobile" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:paddingTop="@dimen/activity_vertical_margin"
+                        android:id="@+id/input_layout_customer_telephone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                            android:id="@+id/input_tenant_telephone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:digits="1234567890"
+                            android:hint="@string/hint_customer_telephone" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.feerlaroc.widgets.rx.ReactiveToggleButton
+                        xmlns:mstb="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/toggle_customer_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dip"
+                        mstb:values="@array/gender_array"
+                        mstb:mstbPrimaryColor="@color/color_divider"
+                        mstb:mstbSecondaryColor="@color/color_draft"/>
+
+                    <com.feerlaroc.widgets.rx.ReactiveToggleButton
+                        xmlns:mstb="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/toggle_customer_gender2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dip"
+                        mstb:values="@array/gender_array"
+                        mstb:mstbPrimaryColor="@color/color_divider"
+                        mstb:mstbSecondaryColor="@color/color_draft"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</com.feerlaroc.mqasho.schema.tenant.view.TenantEditView>

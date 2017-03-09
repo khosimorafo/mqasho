@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_customer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#FF000000" />
+
+        <RelativeLayout
+            android:id="@+id/top_row_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/circle_image_customer">
+
+            <TextView
+                android:id="@+id/text_customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/customer_name_holder" />
+
+            <TextView
+                android:id="@+id/text_amount_outstanding"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/line_amount_holder" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/circle_image_customer"
+            android:layout_below="@+id/top_row_customer"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/text_customer_zaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_content"
+                android:singleLine="true"
+                android:text="@string/number_hash" />
+
+            <TextView
+                android:id="@+id/text_customer_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_content"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:text="@string/number_hash" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_divider_light"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

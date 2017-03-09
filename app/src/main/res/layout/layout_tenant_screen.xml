@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.invoices.schema.tenant.view.CreateTenantView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/main_content_tenant_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <LinearLayout
+                android:id="@+id/layout_tenant_name_holder"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:background="@color/color_red">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_tenant_top"
+                android:layout_below="@+id/layout_tenant_name_holder"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/layout_tenant_detail"
+                android:layout_below="@+id/layout_tenant_top"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:orientation="vertical"
+                android:background="@color/color_white">
+
+            </LinearLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_tenant_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:src="@drawable/ic_done"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_anchor="@id/appbar"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</com.feerlaroc.invoices.schema.tenant.view.CreateTenantView>

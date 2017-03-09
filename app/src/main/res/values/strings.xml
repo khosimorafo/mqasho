@@ -1,3 +1,70 @@
 <resources>
-    <string name="app_name">mqasho</string>
+    <string name="app_name">Mqasho</string>
+
+    <string name="contact_name">Contact Name</string>
+    <string name="number_hash">#</string>
+    <string name="line_amount_holder">300</string>
+
+    <string name="account_type">com.salesforce.samples.templateapp.login</string>
+    <string name="app_package">com.salesforce.samples.templateapp</string>
+    <string name="welcome">Welcome %s</string>
+    <string name="logout_button">Logout</string>
+    <string name="fetch_contacts_button">Fetch Contacts</string>
+    <string name="fetch_accounts_button">Fetch Accounts</string>
+    <string name="clear_button">Clear</string>
+
+    <string name="hint_item_name">Item Name</string>
+    <string name="hint_item_description">Item Description</string>
+    <string name="hint_item_rate">Item Rate</string>
+    <string name="err_msg_item_name">Enter Product Name</string>
+    <string name="err_msg_item_exists">Product Already Exists</string>
+    <string name="err_msg_item_rate">Enter Valid Item Rate</string>
+
+    <string name="save_tenant">Save Tenant</string>
+    <string name="save">Save</string>
+
+    <string name="number_zero">0.0</string>
+    <string name="customer_name_holder">Customer Name</string>
+    <string name="hint_customer_name">Igama lomuntu</string>
+    <string name="hint_customer_zaid">Faka inombolo yeID</string>
+    <string name="hint_customer_fax">Faka inombolo yeFax</string>
+    <string name="hint_customer_telephone">Faka inombolo yocingo</string>
+    <string name="hint_customer_email">Faka i email</string>
+    <string name="hint_customer_mobile">Faka inombolo ye cellular</string>
+    <string name="hint_contact_person">Contact person</string>
+    <string name="email_holder">fake@fake.co.za</string>
+    <string name="customer_zaid_holder">7799440002345</string>
+    <string name="contact_name_holder">Contact Name Holder</string>
+    <string name="phone_number_holder">0871234567</string>
+    <string name="action_delete">Delete</string>
+    <string name="divider">Divider</string>
+
+    <string name="message_empty_list_data">No %1$s information available.</string>
+    <string name="message_no_matching_records">No %1$s that match your search.</string>
+    <string name="invoice_number">invoice number</string>
+    <string name="date_holder">30 February 1999</string>
+
+    <string name="str_paid_amount">Paid : %.1f</string>
+    <string name="str_to_pay">To Pay : %.1f</string>
+    <string name="str_invoice_amount">Total : %.1f</string>
+    <string name="hint_payment_received">Imali ekhokhiwe</string>
+    <string name="hint_payment_reference">Enter payment reference</string>
+    <string name="hint_payment_comment">Comment...</string>
+    <string name="label_payment_amount">Payment Amount</string>
+    <string name="search_hint">Search</string>
+    <string name="monthly_name">Monthly Name</string>
+    <string name="positive">+</string>
+    <string name="payment_header_text">Payment for :</string>
+    <string name="str_invoice_status">Unknown</string>
+    <string name="hint_item_sku">Item SKU</string>
+    <string name="hint_item_available_quantity">Available Quantity</string>
+    <string name="hint_item_status">Item Status</string>
+    <string name="failed_to_save">Failed to save tenant!</string>
+    <string name="failed_to_save_recurring_invoice">Failed to save Rec Invoice</string>
+
+    <string-array name="gender_array">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
 </resources>

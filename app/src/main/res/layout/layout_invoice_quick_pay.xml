@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.feerlaroc.widgets.rx.ReactiveActualNumberPicker
+        android:id="@+id/actual_picker_layout_invoice_quick_payment"
+        android:layout_below="@+id/text_layout_payment_invoice_description"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/color_white"
+        app:bar_color="@color/color_transparent"
+        app:bar_width="0dp"
+        app:bars_count="0"
+        app:controls_color="#FFFF3030"
+        app:max_value="1000000000"
+        app:min_value="0"
+        app:selection_color="#EEFFFF00"
+        app:show_controls="false"
+        app:show_fast_controls="false"
+        app:show_text="true"
+        app:text_color="@color/color_light_gray"
+        app:text_size="72sp"
+        app:interval="10"
+        app:fast_interval="50"/>
+
+</LinearLayout>
