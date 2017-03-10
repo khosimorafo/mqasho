@@ -7,10 +7,10 @@ import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.EntityEditScreen;
+import com.feerlaroc.mqasho.schema.invoice.view.InvoiceListView;
 import com.feerlaroc.mqasho.schema.tenant.view.CustomerDisplayView;
 import com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView;
 import com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -25,7 +25,7 @@ public class CustomerDisplayScreen extends Path {
 
     private static final String TAG = "CustomerDisplayScreen";
 
-    @dagger.Module(injects = {CustomerDisplayView.class, CustomerPinView.class,
+    @dagger.Module(injects = {CustomerDisplayView.class, InvoiceListView.class,
             CustomerInvoiceTotalsView.class, CustomerHeaderView.class}
             , addsTo = ActivityModule.class)
     public class Module {}
@@ -44,7 +44,7 @@ public class CustomerDisplayScreen extends Path {
 
         public void editButtonClicked(){
 
-            Flow.get(getView()).set(new TenantEditScreen(EntityEditScreen.EditMode.UPDATE));
+            Flow.get(getView()).set(new CustomerEditScreen(EntityEditScreen.EditMode.UPDATE));
         }
     }
 }

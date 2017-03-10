@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
 
-        <com.feerlaroc.widgets.rx.ReactiveCurrencyBite
+        <com.feerlaroc.widgets.ReactiveCurrencyBite
             android:id="@+id/textbite_outstanding_amount"
             android:layout_weight="1"
             android:layout_width="match_parent"

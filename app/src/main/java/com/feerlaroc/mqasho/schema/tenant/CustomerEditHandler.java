@@ -8,7 +8,7 @@ import com.feerlaroc.mqasho.rx.RxHelper;
 import com.feerlaroc.mqasho.rx.formvalidation.ValidationResult;
 import com.feerlaroc.mqasho.rx.formvalidation.Validations;
 import com.feerlaroc.mqasho.schema.Constants;
-import com.feerlaroc.mqasho.schema.tenant.view.TenantEditView;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerEditView;
 import com.feerlaroc.zoho.entity.HttpResult;
 import com.feerlaroc.zoho.retrofit.exception.ApiException;
 import com.feerlaroc.zoho.subscribers.CommonSubscriber;
@@ -26,7 +26,7 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 import timber.log.Timber;
 
-public class TenantEditHandler {
+public class CustomerEditHandler {
 
     private CustomerFactory mCustomerFactory = new CustomerFactory().initialize();
     private Subscription mSubscription;
@@ -38,11 +38,11 @@ public class TenantEditHandler {
 
     private PublishSubject<Boolean> mResultSubject = PublishSubject.create();
 
-    private TenantEditView mView;
+    private CustomerEditView mView;
 
     private TenantRecurringInvoiceHandler<HttpResult<List<Map<String, Object>>>> mRecurringInvoiceHandler;
 
-    public TenantEditHandler(TenantEditView view){
+    public CustomerEditHandler(CustomerEditView view){
 
         mView = view;
         configureObservables();

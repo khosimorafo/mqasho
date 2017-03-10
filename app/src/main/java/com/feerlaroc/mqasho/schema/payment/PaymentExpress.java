@@ -1,4 +1,4 @@
-package com.feerlaroc.mqasho.schema.invoice.view;
+package com.feerlaroc.mqasho.schema.payment;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,11 +7,15 @@ import android.widget.LinearLayout;
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.widgets.ReactiveActualNumberPicker;
 
-public class InvoiceQuickPayView extends LinearLayout {
+/**
+ * Created by root on 2017/01/15.
+ */
+
+public class PaymentExpress extends LinearLayout {
 
     ReactiveActualNumberPicker mPaymentAmountActualNumberPicker;
 
-    public InvoiceQuickPayView(Context context, AttributeSet attrs) {
+    public PaymentExpress(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         inflate(getContext(), R.layout.layout_payment_express, this);

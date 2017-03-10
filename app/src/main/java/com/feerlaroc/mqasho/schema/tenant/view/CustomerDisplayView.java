@@ -112,7 +112,7 @@ public class CustomerDisplayView extends CustomLinearLayout<CustomerDisplayScree
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 
         mOutstandingInvoiceList.setLayoutParams(params);
-        mLayoutSecondRow.addView(mOutstandingInvoiceList);
+        mLayoutThirdRow.addView(mOutstandingInvoiceList);
 
     }
 
@@ -131,7 +131,7 @@ public class CustomerDisplayView extends CustomLinearLayout<CustomerDisplayScree
         mCustomerInvoiceTotalsView.setDrawBorderBottom(true);
         mCustomerInvoiceTotalsView.setDrawBorderTop(true);
 
-        mLayoutThirdRow.addView(mCustomerInvoiceTotalsView);
+        mLayoutSecondRow.addView(mCustomerInvoiceTotalsView);
     }
 
     @Override

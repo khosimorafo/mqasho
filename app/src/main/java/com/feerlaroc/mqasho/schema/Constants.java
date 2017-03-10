@@ -42,6 +42,7 @@ public class Constants {
         public static final String CREATED_DATE = "created_time";
         public static final String DUE_DATE = "due_date";
         public static final String DUE_DAYS = "due_days";
+        public static final String BALANCE = "balance";
     }
 
     public static final class ZOHOITEMSCHEMA {

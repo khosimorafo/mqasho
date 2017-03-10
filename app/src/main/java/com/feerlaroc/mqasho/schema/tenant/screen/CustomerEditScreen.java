@@ -9,9 +9,9 @@ import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.Constants;
 import com.feerlaroc.mqasho.schema.EntityEditScreen;
+import com.feerlaroc.mqasho.schema.tenant.CustomerEditHandler;
 import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
-import com.feerlaroc.mqasho.schema.tenant.TenantEditHandler;
-import com.feerlaroc.mqasho.schema.tenant.view.TenantEditView;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerEditView;
 import com.feerlaroc.zoho.utils.DialogHelper;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -23,35 +23,35 @@ import flow.path.Path;
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
-@Layout(R.layout.layout_tenant_edit)
-@WithModule(TenantEditScreen.Module.class)
-public class TenantEditScreen extends Path{
+@Layout(R.layout.layout_customer_edit)
+@WithModule(CustomerEditScreen.Module.class)
+public class CustomerEditScreen extends Path{
 
-    private static final String TAG = "TenantEditScreen";
+    private static final String TAG = "CustomerEditScreen";
 
     static EntityEditScreen.EditMode mEditMode;
 
 
-    @dagger.Module(injects = TenantEditView.class, addsTo = ActivityModule.class)
+    @dagger.Module(injects = CustomerEditView.class, addsTo = ActivityModule.class)
     public class Module {
     }
 
-    public TenantEditScreen(){
+    public CustomerEditScreen(){
 
         mEditMode = EntityEditScreen.EditMode.NEW;
     }
 
-    public TenantEditScreen(EntityEditScreen.EditMode mode){
+    public CustomerEditScreen(EntityEditScreen.EditMode mode){
 
         mEditMode = mode;
     }
 
     @Singleton
-    public static class Presenter extends EntityEditScreen<TenantEditView> {
+    public static class Presenter extends EntityEditScreen<CustomerEditView> {
 
         static PublishSubject<Boolean> mCustomerCreatedResult = PublishSubject.create();
 
-        TenantEditHandler mEditHandler;
+        CustomerEditHandler mEditHandler;
 
         @Inject
         public Presenter() {}
@@ -61,7 +61,7 @@ public class TenantEditScreen extends Path{
 
             super.onLoad(savedInstanceState);
 
-            mEditHandler = new TenantEditHandler(getView());
+            mEditHandler = new CustomerEditHandler(getView());
 
             getView().getSaveButton().setEnabled(false);
             getView().getSaveButton().setTextColor(Color.LTGRAY);

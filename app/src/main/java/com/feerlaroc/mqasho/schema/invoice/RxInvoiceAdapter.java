@@ -2,8 +2,10 @@ package com.feerlaroc.mqasho.schema.invoice;
 
 import android.content.Context;
 
+import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.http.ServiceFactory;
 import com.feerlaroc.mqasho.schema.Constants;
+import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
 import com.feerlaroc.utils.Helper;
 import com.feerlaroc.zoho.retrofit.exception.ApiException;
 import com.feerlaroc.zoho.rx.Holder;
@@ -14,6 +16,7 @@ import com.feerlaroc.zoho.transformer.DefaultTransformer;
 import java.util.List;
 import java.util.Map;
 
+import rx.functions.Action1;
 import timber.log.Timber;
 
 public class RxInvoiceAdapter extends RxZohoRecyclerAdapter<InvoiceHolder> {
@@ -22,45 +25,72 @@ public class RxInvoiceAdapter extends RxZohoRecyclerAdapter<InvoiceHolder> {
 
         super(layout, InvoiceHolder.class, listener);
 
-        ServiceFactory.invoiceApi()
-                .get(Constants.ZOHO.TOKEN, Constants.ZOHO.ORG_ID)
-                .compose(new DefaultTransformer<>())
-                .subscribe(new RxSubscriber<List<Map<String, Object>>>(context) {
+        CustomerObservable.getCustomerIDSubject().subscribe(new Action1<String>() {
+            @Override
+            public void call(String s) {
 
-                    @Override
-                    public void onNext(List<Map<String, Object>> data) {
+                ServiceFactory.invoiceApi()
+                        .getInvoiceByCustomerID(Constants.ZOHO.TOKEN, Constants.ZOHO.ORG_ID, s)
+                        .compose(new DefaultTransformer<>())
+                        .subscribe(new RxSubscriber<List<Map<String, Object>>>(context) {
 
-                        updateDataset(data);
-                        Timber.i( "Customer data was loaded from API." );
-                    }
+                            @Override
+                            public void onNext(List<Map<String, Object>> data) {
 
-                    @Override
-                    protected void onError(ApiException ex) {
+                                updateDataset(data);
+                                Timber.i( "Customer data was loaded from API." );
+                            }
 
-                        super.onError(ex);
-                        Timber.e( ex, "Unable to load the customer data from API." );
-                    }
+                            @Override
+                            protected void onError(ApiException ex) {
 
-                    @Override
-                    public void onCompleted() {
+                                super.onError(ex);
+                                Timber.e( ex, "Unable to load the customer data from API." );
+                            }
 
-                        super.onCompleted();
-                    }
-                });
+                            @Override
+                            public void onCompleted() {
+
+                                super.onCompleted();
+                            }
+                        });
+
+            }
+        });
+
     }
 
     @Override
     protected void populateViewHolder(InvoiceHolder viewHolder, Map model, int position) {
 
-        viewHolder.textCustomerName
-                .setText(Helper.returnString(model.get(Constants.ZOHOCONTACTSCHEMA.CUSTOMER_NAME)));
+        viewHolder.textInvoiceNumber
+                .setText(Helper.returnString(model.get(Constants.ZOHOINVOICESCHEMA.INVOICE_NUMBER)));
         viewHolder.textOutstandingAmount
-                .setText(Helper.returnString(model.get(Constants.ZOHOCONTACTSCHEMA.OUTSTANDING_AMOUNT)));
+                .setText(Helper.returnString(model.get(Constants.ZOHOINVOICESCHEMA.BALANCE)));
+
+        String _status = String.valueOf(model.get(Constants.ZOHOINVOICESCHEMA.STATUS));
+
+        switch(_status) {
+
+            case Constants.STATUS.PAID:
+                viewHolder.imageInvoiceStatus.setImageResource(R.drawable.ic_money_paid_24);
+                break;
+            case Constants.STATUS.UNPAID:
+                viewHolder.imageInvoiceStatus.setImageResource(R.drawable.ic_unpaid_24);
+                break;
+            case Constants.STATUS.OVERDUE:
+                viewHolder.imageInvoiceStatus.setImageResource(R.drawable.ic_time_span_24);
+                break;
+            case Constants.STATUS.DRAFT:
+            default:
+                viewHolder.imageInvoiceStatus.setImageResource(R.drawable.ic_unpaid_24);
+                break;
+        }
 
         viewHolder.setListener(mListener);
 
     }
 
     @Override
-    public String getReference() {  return Constants.FEERLAROC.CUSTOMERS;    }
+    public String getReference() {  return Constants.FEERLAROC.INVOICES;    }
 }

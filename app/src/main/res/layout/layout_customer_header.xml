@@ -27,7 +27,7 @@
             android:src="@drawable/ic_pencil_48"
             />
 -->
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.feerlaroc.widgets.ReactiveCircleImageView
             android:id="@+id/circle_image_customer"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -38,7 +38,7 @@
             app:civ_border_width="1dp"
             />
 
-        <com.feerlaroc.widgets.rx.ReactiveTextView
+        <com.feerlaroc.widgets.ReactiveTextView
             android:id="@+id/text_customer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

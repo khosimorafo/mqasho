@@ -55,7 +55,7 @@ public class CustomerPinScreen extends Path {
 
                         if(!mAdapter.isEmpty()) {
 
-                            alert.setView(getView().getInvoiceQuickPayView());
+                            alert.setView(getView().getPayment());
 
                             mSelectedItem = (Map<String, Object>) mAdapter.getItem(position);
                             String _invoice_id = String.valueOf(mSelectedItem.get(Constants.ZOHOINVOICESCHEMA.INVOICE_ID));
@@ -63,7 +63,7 @@ public class CustomerPinScreen extends Path {
                             InvoiceObservable.getInvoiceNumberSubject()
                                     .subscribe(alert::setTitle);
 
-                            getView().getInvoiceQuickPayView().getPaymentAmountActualNumberPicker()
+                            getView().getPayment().getPaymentAmountActualNumberPicker()
                                     .setKey(Constants.ZOHOINVOICESCHEMA.OUTSTANDING_AMOUNT)
                                     .subscribeTo(InvoiceObservable.getAmountOustandingSubject());
 
@@ -81,7 +81,7 @@ public class CustomerPinScreen extends Path {
 
                             alert.setPositiveButton("Pay", (dialog, which) -> {
 
-                                int i = getView().getInvoiceQuickPayView().getPaymentAmountActualNumberPicker().getValue();
+                                int i = getView().getPayment().getPaymentAmountActualNumberPicker().getValue();
                                 Double _applied_amt = (double) i;
 
                                 new PaymentHandler(getView().getContext(), _applied_amt, _invoice_id).create();

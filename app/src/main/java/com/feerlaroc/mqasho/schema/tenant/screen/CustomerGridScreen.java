@@ -71,7 +71,7 @@ public class CustomerGridScreen extends Path {
 
         public void addNewCustomer(){
 
-            Flow.get(getView()).set(new TenantEditScreen());
+            Flow.get(getView()).set(new CustomerEditScreen());
         }
 
         @Override

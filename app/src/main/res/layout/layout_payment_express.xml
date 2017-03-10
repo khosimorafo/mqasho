@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.feerlaroc.widgets.rx.ReactiveActualNumberPicker
+    <com.feerlaroc.widgets.ReactiveActualNumberPicker
         android:id="@+id/actual_picker_layout_invoice_quick_payment"
         android:layout_below="@+id/text_layout_payment_invoice_description"
         android:layout_width="match_parent"

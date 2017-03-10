@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomRelativeLayout;
-import com.feerlaroc.mqasho.schema.tenant.screen.TenantEditScreen;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerEditScreen;
 import com.feerlaroc.widgets.ReactiveEditText;
 import com.feerlaroc.widgets.ReactiveToggleButton;
 
@@ -18,10 +18,10 @@ import butterknife.InjectView;
 /**
  * Created by root on 2016/03/23.
  */
-public class TenantEditView extends CustomRelativeLayout<TenantEditScreen.Presenter> {
+public class CustomerEditView extends CustomRelativeLayout<CustomerEditScreen.Presenter> {
 
     @Inject
-    TenantEditScreen.Presenter mPresenter;
+    CustomerEditScreen.Presenter mPresenter;
 
     @InjectView(R.id.input_layout_customer_zaid)
     TextInputLayout mInputLayoutZAID;
@@ -41,7 +41,7 @@ public class TenantEditView extends CustomRelativeLayout<TenantEditScreen.Presen
     Button mSaveTenantButton;
 
 
-    public TenantEditView(Context context, AttributeSet attrs) {
+    public CustomerEditView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -61,7 +61,7 @@ public class TenantEditView extends CustomRelativeLayout<TenantEditScreen.Presen
     }
 
     @Override
-    public TenantEditScreen.Presenter getPresenter() {
+    public CustomerEditScreen.Presenter getPresenter() {
         return mPresenter;
     }
 
