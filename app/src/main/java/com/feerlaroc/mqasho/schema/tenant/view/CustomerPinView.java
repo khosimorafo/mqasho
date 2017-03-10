@@ -6,22 +6,22 @@ import android.util.AttributeSet;
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomFrameLayout;
 import com.feerlaroc.mqasho.schema.invoice.view.InvoiceQuickPayView;
-import com.feerlaroc.mqasho.schema.tenant.screen.CustomerPinScreen2;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerPinScreen;
 import com.feerlaroc.widgets.view.DataPinView;
 
 import javax.inject.Inject;
 
 
-public class CustomerPinView2 extends CustomFrameLayout<CustomerPinScreen2.Presenter> {
+public class CustomerPinView extends CustomFrameLayout<CustomerPinScreen.Presenter> {
 
     @Inject
-    CustomerPinScreen2.Presenter mPresenter;
+    CustomerPinScreen.Presenter mPresenter;
 
     InvoiceQuickPayView mInvoiceQuickPayView = new InvoiceQuickPayView(getContext(), null);
 
     DataPinView mDataPinView;
 
-    public CustomerPinView2(Context context, AttributeSet attrs) {
+    public CustomerPinView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -33,7 +33,7 @@ public class CustomerPinView2 extends CustomFrameLayout<CustomerPinScreen2.Prese
     }
 
     @Override
-    public CustomerPinScreen2.Presenter getPresenter() {
+    public CustomerPinScreen.Presenter getPresenter() {
         return mPresenter;
     }
 

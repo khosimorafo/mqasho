@@ -93,10 +93,10 @@ public class TenantEditScreen extends Path{
 
                 if(aBoolean) {
 
-                    Flow.get(getView()).set(new CustomerDisplayScreen2());
+                    Flow.get(getView()).set(new CustomerDisplayScreen());
                 }
                 else{
-                    Flow.get(getView()).set(new CustomerGridScreen2());}
+                    Flow.get(getView()).set(new CustomerGridScreen());}
             });
         }
 

@@ -7,25 +7,15 @@ import android.net.NetworkInfo;
 
 import com.feerlaroc.mqasho.common.dagger.ObjectGraphService;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import dagger.ObjectGraph;
 import mortar.MortarScope;
 import timber.log.Timber;
 
-/**
- * Created by root on 2016/02/22.
- */
 public class InvoiceApplication extends Application {
 
     static InvoiceApplication singleton;
 
     private MortarScope rootScope;
-
-    Set<String> serviceClasses  = new LinkedHashSet<>();
-    Set<Class> entityClasses = new LinkedHashSet<>();
-
 
     @Override public Object getSystemService(String name) {
         if (rootScope == null) {
@@ -78,5 +68,6 @@ public class InvoiceApplication extends Application {
     public Context getBaseContext() {
         return super.getBaseContext();
     }
+
 }
 

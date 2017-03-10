@@ -8,7 +8,7 @@ import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.start.DataInitialization;
 import com.feerlaroc.mqasho.schema.start.view.AppStartView;
-import com.feerlaroc.mqasho.schema.tenant.screen.CustomerGridScreen2;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerGridScreen;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -51,7 +51,7 @@ public class AppStartScreen extends Path {
             navigate();
         }
 
-        public void navigate(){ Flow.get(getView()).set(new CustomerGridScreen2()); }
+        public void navigate(){ Flow.get(getView()).set(new CustomerGridScreen()); }
 
     }
 }

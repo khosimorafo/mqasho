@@ -8,7 +8,7 @@ import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.EntityViewScreen;
 import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,17 +19,17 @@ import flow.path.Path;
  * Created by root on 2016/09/05.
  */
 
-@Layout(R.layout.layout_customer_invoice_total2)
-@WithModule(CustomerInvoiceTotalsScreen2.Module.class)
-public class CustomerInvoiceTotalsScreen2 extends Path {
+@Layout(R.layout.layout_customer_invoice_total)
+@WithModule(CustomerInvoiceTotalsScreen.Module.class)
+public class CustomerInvoiceTotalsScreen extends Path {
 
-    private static final String TAG = "CustomerInvoiceTotalsScreen2";
+    private static final String TAG = "CustomerInvoiceTotalsScreen";
 
-    @dagger.Module(injects = CustomerInvoiceTotalsView2.class, addsTo = ActivityModule.class)
+    @dagger.Module(injects = CustomerInvoiceTotalsView.class, addsTo = ActivityModule.class)
     public class Module {}
 
     @Singleton
-    public static class Presenter extends EntityViewScreen<CustomerInvoiceTotalsView2> {
+    public static class Presenter extends EntityViewScreen<CustomerInvoiceTotalsView> {
 
         @Inject
         public Presenter() {}

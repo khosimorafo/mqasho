@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2
+<com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp">
@@ -20,4 +20,4 @@
 
     </LinearLayout>
 
-</com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2>
+</com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView>

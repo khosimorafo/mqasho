@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomRelativeLayout;
-import com.feerlaroc.mqasho.schema.tenant.screen.CustomerInvoiceTotalsScreen2;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerInvoiceTotalsScreen;
 import com.feerlaroc.widgets.ReactiveCurrencyBite;
 
 import javax.inject.Inject;
@@ -17,12 +17,12 @@ import butterknife.Optional;
 /**
  * Created by root on 2016/09/05.
  */
-public class CustomerInvoiceTotalsView2 extends CustomRelativeLayout<CustomerInvoiceTotalsScreen2.Presenter> {
+public class CustomerInvoiceTotalsView extends CustomRelativeLayout<CustomerInvoiceTotalsScreen.Presenter> {
 
     private static final String TAG = "CustomerInvoiceTotalsView";
 
     @Inject
-    CustomerInvoiceTotalsScreen2.Presenter mPresenter;
+    CustomerInvoiceTotalsScreen.Presenter mPresenter;
 
     @InjectView(R.id.layout_customer_textbite)
     @Optional LinearLayout mLayoutCustomerBite;
@@ -30,7 +30,7 @@ public class CustomerInvoiceTotalsView2 extends CustomRelativeLayout<CustomerInv
     //@InjectView(R.id.textbite_outstanding_amount)
     ReactiveCurrencyBite mOutstandingAmount;
 
-    public CustomerInvoiceTotalsView2(Context context, AttributeSet attrs) {
+    public CustomerInvoiceTotalsView(Context context, AttributeSet attrs) {
 
         super(context, attrs);
     }
@@ -56,7 +56,7 @@ public class CustomerInvoiceTotalsView2 extends CustomRelativeLayout<CustomerInv
     }
 
     @Override
-    public CustomerInvoiceTotalsScreen2.Presenter getPresenter() {
+    public CustomerInvoiceTotalsScreen.Presenter getPresenter() {
 
         return mPresenter;
     }

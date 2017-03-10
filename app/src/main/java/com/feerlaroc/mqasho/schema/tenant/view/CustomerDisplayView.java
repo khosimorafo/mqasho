@@ -9,7 +9,8 @@ import android.widget.LinearLayout;
 
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomLinearLayout;
-import com.feerlaroc.mqasho.schema.tenant.screen.CustomerDisplayScreen2;
+import com.feerlaroc.mqasho.schema.invoice.view.InvoiceListView;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerDisplayScreen;
 import com.jakewharton.rxbinding.view.RxView;
 
 import javax.inject.Inject;
@@ -18,16 +19,17 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import rx.Observable;
 
-public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScreen2.Presenter> {
+public class CustomerDisplayView extends CustomLinearLayout<CustomerDisplayScreen.Presenter> {
 
     private static final String TAG = "CustomerDisplayView";
 
     @Inject
-    CustomerDisplayScreen2.Presenter mPresenter;
+    CustomerDisplayScreen.Presenter mPresenter;
 
-    CustomerHeaderView2 mCustomerHeaderView;
-    CustomerPinView2 mCustomerPinView;
-    CustomerInvoiceTotalsView2 mCustomerInvoiceTotalsView;
+    CustomerHeaderView mCustomerHeaderView;
+    CustomerPinView mCustomerPinView;
+    CustomerInvoiceTotalsView mCustomerInvoiceTotalsView;
+    InvoiceListView mOutstandingInvoiceList;
 
     @InjectView(R.id.top)
     LinearLayout mLayoutTop;
@@ -40,7 +42,7 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
     ImageView mEditCustomerImageView;
 
 
-    public CustomerDisplayView2(Context context, AttributeSet attrs) {
+    public CustomerDisplayView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -52,7 +54,8 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
         ButterKnife.inject(this);
 
         setupCustomerHeaderView();
-        setupCustomerPinView();
+        //setupCustomerPinView();
+        setupCustomerInvoiceListView();
         setupInvoiceTotalsView();
 
         setupEditButton();
@@ -69,8 +72,8 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
 
     private void setupCustomerHeaderView(){
 
-        mCustomerHeaderView = (CustomerHeaderView2) View
-                .inflate(getContext(), R.layout.layout_customer_header2, null);
+        mCustomerHeaderView = (CustomerHeaderView) View
+                .inflate(getContext(), R.layout.layout_customer_header, null);
 
         mCustomerHeaderView.setBackgroundColor(Color.TRANSPARENT);
 
@@ -85,8 +88,8 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
 
     private void setupCustomerPinView(){
 
-        mCustomerPinView = (CustomerPinView2) View
-                .inflate(getContext(), R.layout.layout_customer_pin2, null);
+        mCustomerPinView = (CustomerPinView) View
+                .inflate(getContext(), R.layout.layout_customer_pin, null);
 
         mCustomerPinView.setBackgroundColor(Color.TRANSPARENT);
 
@@ -98,10 +101,25 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
 
     }
 
+    private void setupCustomerInvoiceListView(){
+
+        mOutstandingInvoiceList = (InvoiceListView) View
+                .inflate(getContext(), R.layout.layout_invoice_list, null);
+
+        mOutstandingInvoiceList.setBackgroundColor(Color.TRANSPARENT);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+        mOutstandingInvoiceList.setLayoutParams(params);
+        mLayoutSecondRow.addView(mOutstandingInvoiceList);
+
+    }
+
     private void setupInvoiceTotalsView() {
 
-        mCustomerInvoiceTotalsView = (CustomerInvoiceTotalsView2) View
-                .inflate(getContext(), R.layout.layout_customer_invoice_total2, null);
+        mCustomerInvoiceTotalsView = (CustomerInvoiceTotalsView) View
+                .inflate(getContext(), R.layout.layout_customer_invoice_total, null);
 
         mCustomerInvoiceTotalsView.setBackgroundColor(Color.TRANSPARENT);
 
@@ -117,7 +135,7 @@ public class CustomerDisplayView2 extends CustomLinearLayout<CustomerDisplayScre
     }
 
     @Override
-    public CustomerDisplayScreen2.Presenter getPresenter() {
+    public CustomerDisplayScreen.Presenter getPresenter() {
 
         return mPresenter;
     }

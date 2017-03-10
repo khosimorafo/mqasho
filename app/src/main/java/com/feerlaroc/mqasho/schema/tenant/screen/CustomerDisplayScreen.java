@@ -7,10 +7,10 @@ import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.EntityEditScreen;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerDisplayView2;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView2;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView2;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView2;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerDisplayView;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerInvoiceTotalsView;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,19 +19,19 @@ import flow.Flow;
 import flow.path.Path;
 import mortar.ViewPresenter;
 
-@Layout(R.layout.layout_customer_display2)
-@WithModule(CustomerDisplayScreen2.Module.class)
-public class CustomerDisplayScreen2 extends Path {
+@Layout(R.layout.layout_customer_display)
+@WithModule(CustomerDisplayScreen.Module.class)
+public class CustomerDisplayScreen extends Path {
 
-    private static final String TAG = "CustomerDisplayScreen2";
+    private static final String TAG = "CustomerDisplayScreen";
 
-    @dagger.Module(injects = {CustomerDisplayView2.class, CustomerPinView2.class,
-            CustomerInvoiceTotalsView2.class, CustomerHeaderView2.class}
+    @dagger.Module(injects = {CustomerDisplayView.class, CustomerPinView.class,
+            CustomerInvoiceTotalsView.class, CustomerHeaderView.class}
             , addsTo = ActivityModule.class)
     public class Module {}
 
     @Singleton
-    public static class Presenter extends ViewPresenter<CustomerDisplayView2> {
+    public static class Presenter extends ViewPresenter<CustomerDisplayView> {
 
         @Inject
         public Presenter() {}

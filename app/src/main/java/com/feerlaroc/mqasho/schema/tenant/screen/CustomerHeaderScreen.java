@@ -8,24 +8,24 @@ import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.EntityViewScreen;
 import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView2;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerHeaderView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import flow.path.Path;
 
-@Layout(R.layout.layout_customer_header2)
-@WithModule(CustomerHeaderScreen2.Module.class)
-public class CustomerHeaderScreen2 extends Path {
+@Layout(R.layout.layout_customer_header)
+@WithModule(CustomerHeaderScreen.Module.class)
+public class CustomerHeaderScreen extends Path {
 
-    private static final String TAG = "CustomerHeaderScreen2";
+    private static final String TAG = "CustomerHeaderScreen";
 
-    @dagger.Module(injects = CustomerHeaderView2.class, addsTo = ActivityModule.class)
+    @dagger.Module(injects = CustomerHeaderView.class, addsTo = ActivityModule.class)
     public class Module {}
 
     @Singleton
-    public static class Presenter extends EntityViewScreen<CustomerHeaderView2> {
+    public static class Presenter extends EntityViewScreen<CustomerHeaderView> {
 
         @Inject
         public Presenter() {}

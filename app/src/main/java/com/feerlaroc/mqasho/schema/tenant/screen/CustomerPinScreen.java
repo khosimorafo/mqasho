@@ -8,7 +8,7 @@ import com.feerlaroc.mqasho.common.flow.Layout;
 import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.invoice.view.InvoiceQuickPayView;
 import com.feerlaroc.mqasho.schema.tenant.RxCustomerInvoiceListAdapter;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView2;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerPinView;
 import com.feerlaroc.zoho.rx.RxZohoDataSource;
 
 import java.util.HashMap;
@@ -20,15 +20,15 @@ import javax.inject.Singleton;
 import flow.path.Path;
 import mortar.ViewPresenter;
 
-@Layout(R.layout.layout_customer_pin2)
-@WithModule(CustomerPinScreen2.Module.class)
-public class CustomerPinScreen2 extends Path {
+@Layout(R.layout.layout_customer_pin)
+@WithModule(CustomerPinScreen.Module.class)
+public class CustomerPinScreen extends Path {
 
-    @dagger.Module(injects = {CustomerPinView2.class, InvoiceQuickPayView.class}, addsTo = ActivityModule.class)
+    @dagger.Module(injects = {CustomerPinView.class, InvoiceQuickPayView.class}, addsTo = ActivityModule.class)
     public class Module {}
 
     @Singleton
-    public static class Presenter extends ViewPresenter<CustomerPinView2> {
+    public static class Presenter extends ViewPresenter<CustomerPinView> {
 
         private RxCustomerInvoiceListAdapter mAdapter;
         private RxZohoDataSource mDatasource;

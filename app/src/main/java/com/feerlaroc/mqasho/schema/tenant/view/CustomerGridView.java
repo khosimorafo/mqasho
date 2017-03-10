@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomLinearLayout;
-import com.feerlaroc.mqasho.schema.tenant.screen.CustomerGridScreen2;
+import com.feerlaroc.mqasho.schema.tenant.screen.CustomerGridScreen;
 import com.jakewharton.rxbinding.view.RxView;
 
 import javax.inject.Inject;
@@ -19,10 +19,10 @@ import javax.inject.Inject;
  * Created by root on 2017/01/13.
  */
 
-public class CustomerGridView2 extends CustomLinearLayout<CustomerGridScreen2.Presenter> {
+public class CustomerGridView extends CustomLinearLayout<CustomerGridScreen.Presenter> {
 
     @Inject
-    CustomerGridScreen2.Presenter mPresenter;
+    CustomerGridScreen.Presenter mPresenter;
 
     RecyclerView mRecyclerView;
 
@@ -34,7 +34,7 @@ public class CustomerGridView2 extends CustomLinearLayout<CustomerGridScreen2.Pr
     MenuItem searchMenuItem;
 
 
-    public CustomerGridView2(Context context, AttributeSet attrs) {
+    public CustomerGridView(Context context, AttributeSet attrs) {
 
         super(context, attrs);
     }
@@ -54,7 +54,7 @@ public class CustomerGridView2 extends CustomLinearLayout<CustomerGridScreen2.Pr
     }
 
     @Override
-    public CustomerGridScreen2.Presenter getPresenter() {
+    public CustomerGridScreen.Presenter getPresenter() {
 
         return mPresenter;
     }

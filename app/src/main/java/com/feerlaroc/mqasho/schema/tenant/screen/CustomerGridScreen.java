@@ -10,7 +10,7 @@ import com.feerlaroc.mqasho.common.mortarscreen.WithModule;
 import com.feerlaroc.mqasho.schema.Constants;
 import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
 import com.feerlaroc.mqasho.schema.tenant.RxCustomerAdapter;
-import com.feerlaroc.mqasho.schema.tenant.view.CustomerGridView2;
+import com.feerlaroc.mqasho.schema.tenant.view.CustomerGridView;
 import com.feerlaroc.zoho.rx.Holder;
 import com.feerlaroc.zoho.rx.RxZohoDataSource;
 import com.feerlaroc.zoho.rx.RxZohoRecyclerAdapter;
@@ -23,17 +23,17 @@ import flow.Flow;
 import flow.path.Path;
 import mortar.ViewPresenter;
 
-@Layout(R.layout.layout_customer_list2)
-@WithModule(CustomerGridScreen2.Module.class)
-public class CustomerGridScreen2 extends Path {
+@Layout(R.layout.layout_customer_list)
+@WithModule(CustomerGridScreen.Module.class)
+public class CustomerGridScreen extends Path {
 
-    private static final String TAG = "CustomerGridScreen2";
+    private static final String TAG = "CustomerGridScreen";
 
-    @dagger.Module(injects = CustomerGridView2.class, addsTo = ActivityModule.class)
+    @dagger.Module(injects = CustomerGridView.class, addsTo = ActivityModule.class)
     public class Module {}
 
     @Singleton
-    public static class Presenter extends ViewPresenter<CustomerGridView2>
+    public static class Presenter extends ViewPresenter<CustomerGridView>
             implements Holder.SelectedItemListener {
 
         RxZohoRecyclerAdapter mAdapter;
@@ -80,7 +80,7 @@ public class CustomerGridScreen2 extends Path {
             String _id = String.valueOf(mAdapter.getItem(position).get(Constants.ZOHOCONTACTSCHEMA.CUSTOMER_ID));
 
             CustomerObservable.getInstance().set(getView().getContext(), _id);
-            Flow.get(getView()).set(new CustomerDisplayScreen2());
+            Flow.get(getView()).set(new CustomerDisplayScreen());
         }
     }
 }
