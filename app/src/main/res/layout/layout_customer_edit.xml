@@ -73,7 +73,7 @@
                         android:id="@+id/input_layout_customer_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                        <com.feerlaroc.widgets.ReactiveEditText
                             android:id="@+id/input_tenant_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                        <com.feerlaroc.widgets.ReactiveEditText
                             android:id="@+id/input_tenant_zaid"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                         android:id="@+id/input_layout_customer_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                        <com.feerlaroc.widgets.ReactiveEditText
                             android:id="@+id/input_tenant_mobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                         android:id="@+id/input_layout_customer_telephone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.feerlaroc.widgets.rx.ReactiveEditText
+                        <com.feerlaroc.widgets.ReactiveEditText
                             android:id="@+id/input_tenant_telephone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -155,11 +155,11 @@
 
                     <com.feerlaroc.widgets.ReactiveToggleButton
                         xmlns:mstb="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/toggle_customer_gender2"
+                        android:id="@+id/toggle_customer_property"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dip"
-                        mstb:values="@array/gender_array"
+                        mstb:values="@array/property_array"
                         mstb:mstbPrimaryColor="@color/color_divider"
                         mstb:mstbSecondaryColor="@color/color_draft"/>
 

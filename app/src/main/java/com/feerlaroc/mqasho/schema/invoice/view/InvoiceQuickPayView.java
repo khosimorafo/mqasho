@@ -16,7 +16,7 @@ public class InvoiceQuickPayView extends LinearLayout {
 
         inflate(getContext(), R.layout.layout_payment_express, this);
         mPaymentAmountActualNumberPicker = (ReactiveActualNumberPicker)
-                findViewById(R.id.actual_picker_layout_invoice_quick_payment);
+                findViewById(R.id.actual_picker_layout_payment_express);
     }
 
     @Override

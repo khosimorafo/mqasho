@@ -5,6 +5,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+import com.feerlaroc.widgets.view.FeerlarocMultiStateToggleButton;
+import com.feerlaroc.widgets.view.FeerlarocToggleButton;
+
 import rx.Observable;
 import rx.subjects.PublishSubject;
 
@@ -28,6 +31,21 @@ public class RxHelper {
             @Override
             public void afterTextChanged(Editable s) {
                 subject.onNext(s.toString());
+            }
+        });
+
+        return subject;
+    }
+
+    public static Observable<Integer> getToggleWatcherObservable(@NonNull final FeerlarocMultiStateToggleButton button){
+
+        final PublishSubject<Integer> subject = PublishSubject.create();
+
+        button.setOnValueChangedListener(new FeerlarocToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int value) {
+
+                subject.onNext(value);
             }
         });
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.feerlaroc.mqasho">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,7 @@
         android:name=".InvoiceApplication">
 
         <activity android:name=".InvoicesAppActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme1">
 
             <intent-filter>

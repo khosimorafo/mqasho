@@ -19,9 +19,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func3;
+import rx.functions.Func1;
+import rx.functions.Func5;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 import timber.log.Timber;
@@ -29,12 +29,15 @@ import timber.log.Timber;
 public class CustomerEditHandler {
 
     private CustomerFactory mCustomerFactory = new CustomerFactory().initialize();
-    private Subscription mSubscription;
 
     private static PublishSubject<String> mCustomerNameSubject = PublishSubject.create();
     private static PublishSubject<String> mCustomerZAIDSubject = PublishSubject.create();
     private static PublishSubject<String> mCustomerMobileSubject = PublishSubject.create();
     private static PublishSubject<String> mCustomerTelephoneSubject = PublishSubject.create();
+    private static PublishSubject<String> mCustomerGenderSubject = PublishSubject.create();
+    private static PublishSubject<String> mCustomerSiteSubject = PublishSubject.create();
+    private static PublishSubject<String> mCustomerRoomSubject = PublishSubject.create();
+
 
     private PublishSubject<Boolean> mResultSubject = PublishSubject.create();
 
@@ -71,6 +74,7 @@ public class CustomerEditHandler {
         mCustomerFactory.captureCustomerZAID(mCustomerZAIDSubject);
         mCustomerFactory.captureCustomerMobile(mCustomerMobileSubject);
         mCustomerFactory.captureCustomerTelephone(mCustomerTelephoneSubject);
+        mCustomerFactory.captureCustomerGender(mCustomerGenderSubject);
 
         Observable<Boolean> nameObservable = RxHelper.getTextWatcherObservable(mView.getTenantName())
                 .debounce(800, TimeUnit.MILLISECONDS)
@@ -115,14 +119,54 @@ public class CustomerEditHandler {
                     return result.isValid();
                 });
 
+        Observable<Boolean> genderObservable = RxHelper.getToggleWatcherObservable(mView.getGenderToggleButton())
+                .debounce(800, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(s -> {
+
+                    //ValidationResult result = Validations.validatePhone(s);
+                    //mView.getTenantMobile().setError(result.getReason());
+                    //if(result.isValid()) { mCustomerMobileSubject.onNext(s);}
+                    //return result.isValid();
+
+                    String _str_value = mView.getGenderToggleButton().getTextAtChild(s);
+
+                    mCustomerGenderSubject.onNext(_str_value);
+
+                    return true;
+                });
+
+        Observable<Boolean> siteObservable = RxHelper.getToggleWatcherObservable(mView.getSiteToggleButton())
+                .debounce(800, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Func1<Integer, Boolean>() {
+                    @Override
+                    public Boolean call(Integer s) {
+
+                        //ValidationResult result = Validations.validatePhone(s);
+                        //mView.getTenantMobile().setError(result.getReason());
+                        //if(result.isValid()) { mCustomerMobileSubject.onNext(s);}
+                        //return result.isValid();
+
+                        String _str_value = mView.getSiteToggleButton().getTextAtChild(s);
+
+                        mCustomerSiteSubject.onNext(_str_value);
+
+                        return true;
+                    }
+                });
+
+
+
 
         Observable
-                .combineLatest(nameObservable, mobileObservable, zaidObservable, new Func3<Boolean, Boolean, Boolean, Boolean>() {
+                .combineLatest(nameObservable, mobileObservable, zaidObservable, genderObservable, siteObservable,
+                        new Func5<Boolean, Boolean, Boolean, Boolean, Boolean, Boolean>() {
 
             @Override
-            public Boolean call(Boolean name, Boolean mobile, Boolean zaid) {
+            public Boolean call(Boolean name, Boolean mobile, Boolean zaid, Boolean gender, Boolean site) {
 
-                return name && mobile && zaid;
+                return name && mobile && zaid && gender && site;
             }
         }).subscribe(aBoolean -> {
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mqasho.schema.tenant.view.TenantPropertySelectorView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.feerlaroc.widgets.ReactiveTextView
+        android:id="@+id/text_wheel_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textAlignment="center"/>
+
+    <FrameLayout
+        android:id="@+id/view_property_block_selector_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <com.feerlaroc.widgets.ReactiveWheelView
+        android:id="@+id/wheel_view_room_number_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.feerlaroc.mqasho.schema.tenant.view.TenantPropertySelectorView>

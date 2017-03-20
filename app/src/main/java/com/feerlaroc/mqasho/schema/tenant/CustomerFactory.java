@@ -19,7 +19,9 @@ import rx.Observable;
 public class CustomerFactory extends BaseEntityFactory<CustomerFactory> {
 
     //Create zoho contact person for customer
-    Map<String, Object> mContactPerson = new HashMap<>();
+    private Map<String, Object> mContactPerson = new HashMap<>();
+    private Map<String, Object> mCustomFields = new HashMap<>();
+
 
     @Override
     public Observable<HttpResult<Map<String, Object>>> post() {
@@ -81,7 +83,7 @@ public class CustomerFactory extends BaseEntityFactory<CustomerFactory> {
             List<Map<String, Object>> _list = new ArrayList<>();
             _list.add(_map);
 
-            mData.put(Constants.ZOHOCONTACTSCHEMA.CUSTOM_FIELDS, _list);
+            mCustomFields.put(Constants.ZOHOCONTACTSCHEMA.CUSTOM_FIELDS, _list);
         });
     }
 
@@ -100,6 +102,37 @@ public class CustomerFactory extends BaseEntityFactory<CustomerFactory> {
             mData.put(Constants.ZOHOCONTACTSCHEMA.TELEPHONE, s);
         });
     }
+
+    public void captureCustomerGender(Observable<String> observable){
+
+        observable.subscribe(s -> {
+
+            Map<String, Object> _map = new HashMap<>();
+            _map.put(Constants.ZOHO.INDEX, 5d);
+            _map.put(Constants.ZOHO.VALUE, s);
+
+            List<Map<String, Object>> _list = new ArrayList<>();
+            _list.add(_map);
+
+            mCustomFields.put(Constants.ZOHOCONTACTSCHEMA.CUSTOM_FIELDS, _list);
+        });
+    }
+
+    public void captureCustomerSite(Observable<String> observable){
+
+        observable.subscribe(s -> {
+
+            Map<String, Object> _map = new HashMap<>();
+            _map.put(Constants.ZOHO.INDEX, 6d);
+            _map.put(Constants.ZOHO.VALUE, s);
+
+            List<Map<String, Object>> _list = new ArrayList<>();
+            _list.add(_map);
+
+            mCustomFields.put(Constants.ZOHOCONTACTSCHEMA.CUSTOM_FIELDS, _list);
+        });
+    }
+
 
     @Override
     public void clearData() {}

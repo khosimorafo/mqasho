@@ -13,7 +13,6 @@ import com.feerlaroc.mqasho.schema.tenant.CustomerEditHandler;
 import com.feerlaroc.mqasho.schema.tenant.CustomerObservable;
 import com.feerlaroc.mqasho.schema.tenant.view.CustomerEditView;
 import com.feerlaroc.zoho.utils.DialogHelper;
-import com.jakewharton.rxbinding.view.RxView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -21,6 +20,7 @@ import javax.inject.Singleton;
 import flow.Flow;
 import flow.path.Path;
 import rx.Observable;
+import rx.functions.Action1;
 import rx.subjects.PublishSubject;
 
 @Layout(R.layout.layout_customer_edit)
@@ -66,11 +66,11 @@ public class CustomerEditScreen extends Path{
             getView().getSaveButton().setEnabled(false);
             getView().getSaveButton().setTextColor(Color.LTGRAY);
 
-            RxView.clicks(getView().getSaveButton())
+/*            RxView.clicks(getView().getSaveButton())
                     .subscribe(aVoid -> {
 
                         onSaveItem();
-                    });
+                    });*/
 
             navigateFromView(mEditHandler.getResultSubject());
 
@@ -78,6 +78,27 @@ public class CustomerEditScreen extends Path{
 
                 updateViewValues();
             }
+
+            configureViewObservables();
+        }
+
+        private void configureViewObservables() {
+
+            getView().getGenderToggleButton().getSelectedSubject()
+                    .subscribe(new Action1<Integer>() {
+                        @Override
+                        public void call(Integer integer) {
+
+                        }
+                    });
+
+            getView().getPropertyToggleButton().getSelectedSubject()
+                    .subscribe(new Action1<Integer>() {
+                        @Override
+                        public void call(Integer integer) {
+
+                        }
+                    });
         }
 
         @Override

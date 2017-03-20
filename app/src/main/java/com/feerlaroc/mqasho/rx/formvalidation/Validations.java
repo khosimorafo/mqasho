@@ -45,4 +45,10 @@ public class Validations {
 
         return ValidationUtils.isValidPersonName(name);
     }
+
+    public static ValidationResult<String> validateGender(@NonNull String zaid) {
+
+        return null;
+    }
+
 }

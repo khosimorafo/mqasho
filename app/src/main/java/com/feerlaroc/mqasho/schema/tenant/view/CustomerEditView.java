@@ -9,37 +9,28 @@ import com.feerlaroc.mqasho.R;
 import com.feerlaroc.mqasho.common.widget.CustomRelativeLayout;
 import com.feerlaroc.mqasho.schema.tenant.screen.CustomerEditScreen;
 import com.feerlaroc.widgets.ReactiveEditText;
-import com.feerlaroc.widgets.ReactiveToggleButton;
+import com.jakewharton.rxbinding.view.RxView;
 
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 
-/**
- * Created by root on 2016/03/23.
- */
 public class CustomerEditView extends CustomRelativeLayout<CustomerEditScreen.Presenter> {
 
     @Inject
     CustomerEditScreen.Presenter mPresenter;
 
-    @InjectView(R.id.input_layout_customer_zaid)
-    TextInputLayout mInputLayoutZAID;
+    @InjectView(R.id.input_layout_customer_zaid) TextInputLayout mInputLayoutZAID;
 
-    @InjectView(R.id.input_tenant_name)
-    ReactiveEditText mEditTextTenantName;
-    @InjectView(R.id.input_tenant_zaid)
-    ReactiveEditText mEditTextTenantZAID;
-    @InjectView(R.id.input_tenant_mobile)
-    ReactiveEditText mEditTextTenantMobile;
-    @InjectView(R.id.input_tenant_telephone)
-    ReactiveEditText mEditTextTenantTelephone;
+    @InjectView(R.id.input_tenant_name)         ReactiveEditText mEditTextTenantName;
+    @InjectView(R.id.input_tenant_zaid)         ReactiveEditText mEditTextTenantZAID;
+    @InjectView(R.id.input_tenant_mobile)       ReactiveEditText mEditTextTenantMobile;
+    @InjectView(R.id.input_tenant_telephone)    ReactiveEditText mEditTextTenantTelephone;
 
-    @InjectView(R.id.toggle_customer_gender)
-    ReactiveToggleButton mToggleButton;
+    @InjectView(R.id.toggle_customer_gender)    GenderToggleButton mGenderToggleButton;
+    @InjectView(R.id.toggle_customer_property)  SiteToggleButton mSiteToggleButton;
 
     Button mSaveTenantButton;
-
 
     public CustomerEditView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -52,12 +43,15 @@ public class CustomerEditView extends CustomRelativeLayout<CustomerEditScreen.Pr
 
         mSaveTenantButton = (Button) findViewById(R.id.layout_tenant_btn_save);
 
-        /*
-        RxView.clicks(mSaveTenantButton)
-                .subscribe(aVoid -> {
+        RxView.clicks(mSaveTenantButton).subscribe(aVoid -> {
                     getPresenter().onSaveItem();
                 });
-                */
+
+        mGenderToggleButton.setOnValueChangedListener(value ->
+                mGenderToggleButton.getSelectedSubject().onNext(value));
+
+        mSiteToggleButton.setOnValueChangedListener(value ->
+                mGenderToggleButton.getSelectedSubject().onNext(value));
     }
 
     @Override
@@ -88,6 +82,14 @@ public class CustomerEditView extends CustomRelativeLayout<CustomerEditScreen.Pr
     public TextInputLayout getInputLayoutZAID(){
 
         return mInputLayoutZAID;
+    }
+
+    public GenderToggleButton getGenderToggleButton() {
+        return mGenderToggleButton;
+    }
+
+    public SiteToggleButton getSiteToggleButton() {
+        return mSiteToggleButton;
     }
 
     public Button getSaveButton(){
